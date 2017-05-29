@@ -22,7 +22,7 @@ RUN dnf makecache fast \
       sudo \
       which \
       python2-dnf \
-      @server-product-environment \
+      server-product-environment \
  && dnf clean all
 
 # disable requiretty
