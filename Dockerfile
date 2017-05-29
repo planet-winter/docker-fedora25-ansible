@@ -28,6 +28,8 @@ RUN dnf makecache fast \
 # disable requiretty
 RUN sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers
 
+RUN cp /usr/lib/systemd/system/dbus.service /etc/systemd/system/; sed -i 's/OOMScoreAdjust=-900//' /etc/systemd/system/dbus.service
+
 # ansible inventory file
 RUN echo -e '[local]\nlocalhost ansible_connection=local' > /etc/ansible/hosts
 
